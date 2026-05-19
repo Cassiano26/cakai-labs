@@ -1,4 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <img src="public/fullLogo.png" alt="Cakai Labs" height="80" />
+</p>
+
+<p align="center">
+  Software, automation and AI — built in layers.
+</p>
+
+---
+
+**Cakai Labs** is a software studio that helps companies build web, mobile and backend systems, automate workflows and integrate AI-powered features into real products.
+
+## Stack
+
+| Layer | Tech |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Animations | GSAP |
+| Icons | Lucide React |
+| CMS _(soon)_ | Sanity |
 
 ## Getting Started
 
