@@ -9,11 +9,11 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "AI Demo", href: "#ai-demo" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Work", href: "/#work" },
+  { label: "AI Demo", href: "/#ai-demo" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -43,7 +43,7 @@ export default function Header() {
 
   return (
     <header ref={headerRef} className="fixed top-0 left-0 z-50 w-full bg-white/90 px-8 py-4 backdrop-blur-sm shadow-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-8">
         <Link href="/">
           <Image src="/nameLogo.svg" alt="Cakai Labs" width={110} height={20} style={{ height: "20px", width: "auto" }} />
         </Link>

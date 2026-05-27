@@ -1,29 +1,30 @@
-"use client";
-
-import { useState } from "react";
+import { Sparkles } from "lucide-react";
 import AIChatBox from "@/components/AIChatBox";
 
 export default function AIDemoSection() {
   return (
-    <section className="w-full bg-gradient-to-br from-[#5d4037]/5 via-transparent to-[#795548]/5 px-8 py-24" id="ai-demo">
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
-        {/* Badge */}
-        <span className="flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-3 py-1 text-xs font-medium text-gray-600">
-          <span className="text-[#4a3428]">✦</span> AI-Powered
-        </span>
+    <section id="ai-demo" className="py-24 relative overflow-hidden bg-white">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5d4037]/5 via-transparent to-[#795548]/5" />
 
-        {/* Heading */}
-        <h2 className="text-4xl font-bold tracking-tight text-gray-900">
-          AI Project Brief Assistant
-        </h2>
+      <div className="max-w-[1440px] mx-auto px-8 relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#5d4037]/10 to-[#795548]/10 rounded-full border border-[#5d4037]/20 mb-6">
+            <Sparkles className="w-4 h-4 text-[#795548]" />
+            <span className="text-sm text-[#5d4037]">AI-Powered</span>
+          </div>
 
-        <p className="text-base leading-relaxed text-gray-500">
-          Describe your project idea and get an instant estimate and
-          consultation roadmap.
-        </p>
+          <h2 className="text-4xl font-bold mb-4 text-neutral-900">
+            AI Project Brief Assistant
+          </h2>
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+            Describe your project idea and get an instant estimate and
+            consultation roadmap.
+          </p>
+        </div>
 
-        {/* Chat box */}
-        <AIChatBox />
+        <div className="max-w-3xl mx-auto">
+          <AIChatBox />
+        </div>
       </div>
     </section>
   );
