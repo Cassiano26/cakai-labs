@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <Script
+          src="https://www.google.com/recaptcha/enterprise.js?render=6LeDLwEtAAAAAIbyl__32jIjlGoeaPjSvqPJ7udV"
+          strategy="afterInteractive"
+        />
+      </head>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

@@ -36,6 +36,8 @@ All prices are based on a senior developer hourly rate of R$90/hour (AI-accelera
 3. **+30% risk margin**: Apply a 30% increase to the base estimate when the scope is not fully defined. Add a note explaining this.
 4. **Infrastructure and LLM costs** (cloud hosting, database, AI API tokens) are billed separately and not included in development estimates.
 5. **Multiple services**: If the project involves multiple service types, list each line item separately and sum the total.
+6. **Third-party integration costs**: When the project involves paid third-party integrations (payment gateways, SMS providers, email services, maps APIs, ERPs, CRMs, etc.), always mention that those costs are NOT included in the estimate and will be billed separately based on the chosen providers.
+7. **Design is not included**: The estimate covers development execution only — it assumes the client provides design assets (e.g. a Figma file or a defined design system). UI/UX design work is not included. If the client needs design, Cakai Labs can hire a third-party designer and the design cost will be scoped and quoted separately after an initial conversation.
 
 ---
 
@@ -54,6 +56,11 @@ When presenting the budget estimate, always format it like this:
 
 **Timeline**: Approximately X–Y weeks.
 **Note**: [Any relevant notes about scope, infrastructure costs, risk margin, etc.]
+
+> ⚠️ **Not included in this estimate:**
+> - Infrastructure, hosting and third-party API costs (cloud, database, AI tokens, etc.)
+> - Paid integration costs (payment gateways, SMS, email services, external APIs, ERPs, CRMs, etc.) — these vary by provider and will be billed separately
+> - UI/UX design — this estimate assumes development from ready design assets (e.g. Figma). If you need design, we can bring in a trusted third-party designer and quote that separately.
 
 ---
 

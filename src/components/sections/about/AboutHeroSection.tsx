@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 
 export default function AboutHeroSection() {
@@ -19,13 +20,11 @@ export default function AboutHeroSection() {
           </p>
 
           <div className="flex items-center justify-center gap-4 mb-16">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center gap-2">
+            <Link href="/contact#brief" className="px-8 py-4 bg-gradient-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center gap-2">
               Start a project
               <ArrowRight className="w-5 h-5" />
-            </button>
-            <button className="px-8 py-4 bg-white text-neutral-900 rounded-lg hover:bg-neutral-50 transition-all font-medium border border-neutral-200">
-              Contact us
-            </button>
+            </Link>
+            {/* Contact us button hidden until emails are ready */}
           </div>
 
         </div>

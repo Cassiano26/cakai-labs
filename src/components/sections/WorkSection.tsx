@@ -3,33 +3,39 @@ import { ExternalLink } from "lucide-react";
 const projects = [
   {
     name: "Shell First",
-    description: "Digital platform for Shell's renewable energy initiative",
-    tags: ["Web", "Backend", "Integration"],
-    href: "#",
+    description: "Digital platform for Shell's energy retail brand in Portugal, with Microsoft Entra ID authentication, e-commerce integrations and Sanity CMS-managed content.",
+    tags: ["Web", "Mobile", "Entra ID", "Integrations", "Sanity CMS", "Next.js"],
+    href: "https://www.shellfirst.pt/",
   },
   {
     name: "PRIO Transição Energética",
-    description: "Energy transition dashboard and analytics platform",
-    tags: ["Data Viz", "Analytics", "API"],
-    href: "#",
+    description: "Institutional web platform for PRIO's energy transition initiative, communicating sustainability projects and green energy goals with dynamic content management.",
+    tags: ["Web", "Next.js", "Sanity CMS"],
+    href: "https://transicaoenergetica.prio.pt/",
   },
   {
     name: "Synere",
-    description: "Enterprise collaboration and workflow platform",
-    tags: ["SaaS", "Real-time", "Mobile"],
-    href: "#",
-  },
-  {
-    name: "Muvv",
-    description: "Modern mobility and transportation solution",
-    tags: ["Mobile", "IoT", "AI"],
-    href: "#",
+    description: "Corporate website for Synere, a Portuguese industrial tech-metal group with 200+ people, showcasing its brands, engineering solutions and ESG commitments.",
+    tags: ["Web", "Next.js", "Sanity CMS"],
+    href: "https://www.synere.pt/pt",
   },
   {
     name: "Inovocorte",
-    description: "Manufacturing optimization and automation system",
-    tags: ["Automation", "AI", "Backend"],
-    href: "#",
+    description: "Corporate and commercial platform for Inovocorte, an end-to-end metal manufacturing partner serving food, retail and industrial equipment sectors across Europe.",
+    tags: ["Web", "Next.js", "Sanity CMS"],
+    href: "https://inovocorte.pt",
+  },
+  {
+    name: "Muvv",
+    description: "Brand website for Muvv, a Synere company specialising in precision-engineered frames for extendable tables, combining modular design with manufacturing excellence.",
+    tags: ["Web", "Next.js", "Sanity CMS"],
+    href: "https://muvv.pt",
+  },
+  {
+    name: "Antropos",
+    description: "Product and brand website for Antropos, a textile machinery company that designs human-driven automation — ergonomic machines that amplify human intelligence in manufacturing.",
+    tags: ["Web", "Next.js", "Sanity CMS"],
+    href: "https://antropos.pt",
   },
 ];
 
@@ -57,7 +63,7 @@ export default function WorkSection() {
                   <h3 className="text-xl font-semibold text-neutral-900">
                     {project.name}
                   </h3>
-                  <a href={project.href} aria-label={`View ${project.name}`}>
+                  <a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name}`}>
                     <ExternalLink className="h-5 w-5 text-neutral-400 transition-colors group-hover:text-[#795548]" />
                   </a>
                 </div>

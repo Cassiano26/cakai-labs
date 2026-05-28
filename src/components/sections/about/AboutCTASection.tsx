@@ -1,4 +1,5 @@
 import { ArrowRight, Mail } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutCTASection() {
   return (
@@ -20,15 +21,12 @@ export default function AboutCTASection() {
               </p>
 
               <div className="flex items-center justify-center gap-4">
-                <button className="px-8 py-4 bg-gradient-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center gap-2">
+                <Link href="/contact#brief" className="px-8 py-4 bg-gradient-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center gap-2">
                   Start a project
                   <ArrowRight className="w-5 h-5" />
-                </button>
+                </Link>
 
-                <button className="px-8 py-4 bg-neutral-50 text-neutral-900 rounded-lg hover:bg-neutral-100 transition-all font-medium border border-neutral-200 flex items-center gap-2">
-                  <Mail className="w-5 h-5" />
-                  Contact us
-                </button>
+                {/* Contact us button hidden until emails are ready */}
               </div>
             </div>
           </div>

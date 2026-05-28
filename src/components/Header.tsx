@@ -61,7 +61,7 @@ export default function Header() {
         </nav>
 
         <Link
-          href="#contact"
+          href="/contact#brief"
           className="rounded-md bg-[#4a3428] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#3a2a20]"
         >
           Start a project

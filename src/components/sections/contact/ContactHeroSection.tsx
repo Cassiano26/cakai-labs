@@ -37,12 +37,7 @@ export default function ContactHeroSection() {
               Start your brief
               <ArrowDown className="w-5 h-5" />
             </a>
-            <a
-              href="mailto:hello@cakai.dev"
-              className="px-8 py-4 bg-white text-neutral-900 rounded-lg hover:bg-neutral-50 transition-all font-medium border border-neutral-200"
-            >
-              Contact us
-            </a>
+            {/* Contact us button hidden until emails are ready */}
           </div>
 
           <p className="text-sm text-neutral-500 mb-14">

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Send, Sparkles } from "lucide-react";
+import { Send, Sparkles, CheckCircle, AlertCircle } from "lucide-react";
 
 const services = [
   "Web platform",
@@ -81,7 +81,21 @@ function ProjectBriefForm() {
   const [website, setWebsite] = useState(() => (initialData?.website as string) || "");
   const [projectStage, setProjectStage] = useState(() => (initialData?.projectStage as string) || "");
   const [budgetRange, setBudgetRange] = useState(() => (initialData?.budgetRange as string) || "");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const isInitialized = useRef(true);
+  const siteKey = "6LeDLwEtAAAAAIbyl__32jIjlGoeaPjSvqPJ7udV";
+
+  // Listen for quickstart card clicks
+  useEffect(() => {
+    function handleQuickStart(e: Event) {
+      const msg = (e as CustomEvent<string>).detail;
+      if (msg) setMessage(msg);
+    }
+    window.addEventListener("quickstart-message", handleQuickStart);
+    return () => window.removeEventListener("quickstart-message", handleQuickStart);
+  }, []);
 
   // Save all form fields to localStorage
   function saveForm(overrides?: Partial<Record<string, unknown>>) {
@@ -102,6 +116,88 @@ function ProjectBriefForm() {
         : [...prev, service];
       return next;
     });
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSubmitError(null);
+    console.log("[Form] Submit started");
+
+    if (!name || !email || !country || !message || selectedServices.length === 0 || !projectStage || !timeline || !budgetRange) {
+      console.log("[Form] Validation failed: missing required fields");
+      setSubmitError("Please fill in all required fields.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      console.log("[Form] Executing reCAPTCHA Enterprise...");
+
+      type GrecaptchaEnterprise = {
+        enterprise: { execute: (key: string, opts: { action: string }) => Promise<string> };
+      };
+
+      // Check if grecaptcha is available
+      const grecaptcha = (window as Window & { grecaptcha?: GrecaptchaEnterprise }).grecaptcha;
+      if (typeof window === "undefined" || !grecaptcha?.enterprise) {
+        throw new Error("reCAPTCHA not loaded");
+      }
+
+      const recaptchaToken = await grecaptcha.enterprise.execute(siteKey, {
+        action: "contact_form",
+      });
+      console.log("[Form] reCAPTCHA token received:", recaptchaToken ? "✓" : "✗");
+
+      console.log("[Form] Sending form data to API", {
+        name,
+        email,
+        company,
+        country,
+        website,
+        selectedServices,
+        message,
+        projectStage,
+        timeline,
+        budgetRange,
+      });
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          recaptchaToken,
+          name,
+          company,
+          email,
+          country,
+          website,
+          selectedServices,
+          message,
+          projectStage,
+          timeline,
+          budgetRange,
+          aiEstimate: prefilledBudget || undefined,
+        }),
+      });
+
+      console.log("[Form] API response status:", res.status);
+      const data = await res.json();
+      console.log("[Form] API response data:", data);
+
+      if (!res.ok) {
+        console.error("[Form] API returned error:", data.error);
+        setSubmitError(data.error || "Something went wrong. Please try again.");
+      } else {
+        console.log("[Form] Success! Clearing form.");
+        setSubmitSuccess(true);
+        localStorage.removeItem(FORM_STORAGE_KEY);
+      }
+    } catch (err) {
+      console.error("[Form] Catch block error:", err);
+      setSubmitError("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   // Save form whenever user-editable fields change (including selectedServices)
@@ -191,11 +287,21 @@ function ProjectBriefForm() {
           </div>
         )}
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
+          {submitSuccess ? (
+            <div className="py-10 flex flex-col items-center gap-4 text-center">
+              <CheckCircle className="w-12 h-12 text-green-500" />
+              <h4 className="text-xl font-bold text-neutral-900">Brief sent!</h4>
+              <p className="text-neutral-600">
+                Thanks! We&apos;ll review your request and get back to you shortly.
+              </p>
+            </div>
+          ) : (
+            <>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Name
+                Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -222,7 +328,7 @@ function ProjectBriefForm() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Email
+                Email <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -234,7 +340,7 @@ function ProjectBriefForm() {
             </div>
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Country
+                Country <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -261,7 +367,7 @@ function ProjectBriefForm() {
 
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-2">
-              Service interest
+              Service interest <span className="text-red-500">*</span>
             </label>
             <div className="flex flex-wrap gap-2">
               {services.map((service) => (
@@ -284,7 +390,7 @@ function ProjectBriefForm() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Project stage
+                Project stage <span className="text-red-500">*</span>
               </label>
               <select
                 value={projectStage}
@@ -302,7 +408,7 @@ function ProjectBriefForm() {
             </div>
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Timeline
+                Timeline <span className="text-red-500">*</span>
               </label>
               <select
                 value={timeline}
@@ -318,7 +424,7 @@ function ProjectBriefForm() {
             </div>
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Budget range
+                Budget range <span className="text-red-500">*</span>
               </label>
               <select
                 value={budgetRange}
@@ -346,7 +452,7 @@ function ProjectBriefForm() {
 
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-              Message
+              Message <span className="text-red-500">*</span>
             </label>
             <textarea
               rows={4}
@@ -359,15 +465,25 @@ function ProjectBriefForm() {
 
           <button
             type="submit"
-            className="w-full px-8 py-4 bg-linear-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center justify-center gap-2"
+            disabled={isSubmitting}
+            className="w-full px-8 py-4 bg-linear-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Send project brief
-            <Send className="w-5 h-5" />
+            {isSubmitting ? "Sending…" : "Send project brief"}
+            {!isSubmitting && <Send className="w-5 h-5" />}
           </button>
+
+          {submitError && (
+            <div className="flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-3">
+              <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+              <p className="text-sm text-red-700">{submitError}</p>
+            </div>
+          )}
 
           <p className="text-xs text-neutral-500 text-center">
             We&apos;ll only use your information to respond to your request.
           </p>
+            </>
+          )}
         </form>
       </div>
     </div>
