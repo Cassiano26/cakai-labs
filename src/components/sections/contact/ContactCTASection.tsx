@@ -2,7 +2,7 @@ import { ArrowUp } from "lucide-react";
 
 export default function ContactCTASection() {
   return (
-    <section className="py-24 bg-neutral-50">
+    <section className="py-12 md:py-24 bg-neutral-50">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="max-w-3xl mx-auto">
           <div className="relative bg-white rounded-3xl p-12 border border-neutral-200 overflow-hidden text-center">

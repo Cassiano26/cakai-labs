@@ -33,7 +33,7 @@ const layers = [
 
 export default function CakaiMeaningSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-12 md:py-24 bg-white">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>

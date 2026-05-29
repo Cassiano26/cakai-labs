@@ -482,6 +482,13 @@ function ProjectBriefForm() {
           <p className="text-xs text-neutral-500 text-center">
             We&apos;ll only use your information to respond to your request.
           </p>
+          <p className="text-xs text-neutral-400 text-center">
+            This site is protected by reCAPTCHA and the Google{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">Privacy Policy</a>{" "}
+            and{" "}
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">Terms of Service</a>{" "}
+            apply.
+          </p>
             </>
           )}
         </form>
@@ -492,7 +499,7 @@ function ProjectBriefForm() {
 
 export default function ProjectBriefSection() {
   return (
-    <section id="brief" className="py-24 bg-white">
+    <section id="brief" className="py-12 md:py-24 bg-white">
       <div className="max-w-360 mx-auto px-8">
         <Suspense fallback={null}>
           <ProjectBriefForm />

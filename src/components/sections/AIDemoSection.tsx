@@ -3,7 +3,7 @@ import AIChatBox from "@/components/AIChatBox";
 
 export default function AIDemoSection() {
   return (
-    <section id="ai-demo" className="py-24 relative overflow-hidden bg-white">
+    <section id="ai-demo" className="py-12 md:py-24 relative overflow-hidden bg-white">
       <div className="absolute inset-0 bg-gradient-to-br from-[#5d4037]/5 via-transparent to-[#795548]/5" />
 
       <div className="max-w-[1440px] mx-auto px-8 relative z-10">

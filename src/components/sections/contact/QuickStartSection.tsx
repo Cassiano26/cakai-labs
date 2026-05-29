@@ -35,7 +35,7 @@ const prompts = [
 
 export default function QuickStartSection() {
   return (
-    <section className="py-24 bg-[#faf9f7]">
+    <section className="py-12 md:py-24 bg-[#faf9f7]">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="max-w-3xl mx-auto text-center mb-14">
           <div className="inline-block px-3 py-1 bg-white border border-neutral-200 rounded-full text-sm text-neutral-600 mb-4">
