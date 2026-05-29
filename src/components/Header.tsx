@@ -99,7 +99,7 @@ export default function Header() {
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          <SidebarToggleIcon className="h-8 w-8" />
+          <SidebarToggleIcon className="h-8 w-8" isOpen={mobileMenuOpen} />
         </button>
       </div>
 

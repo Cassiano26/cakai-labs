@@ -1,26 +1,18 @@
-export function SidebarToggleIcon({ className }: { className?: string }) {
+export function SidebarToggleIcon({ className, isOpen }: { className?: string; isOpen?: boolean }) {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <rect width="16" height="16" rx="6" fill="#F8FAFC" />
-      <path
-        d="M13.3333 7.33325C13.7015 7.33325 14 7.63173 14 7.99992C14 8.36811 13.7015 8.66659 13.3333 8.66659H2.66667C2.29848 8.66659 2 8.36811 2 7.99992C2 7.63173 2.29848 7.33325 2.66667 7.33325H13.3333Z"
-        fill="#94A3B8"
+    <div className={`flex flex-col justify-center items-center gap-[5px] ${className ?? ""}`}>
+      <span
+        className="block h-[2px] w-5 rounded-full bg-[#5d4037] transition-all duration-300 origin-center"
+        style={isOpen ? { transform: "translateY(7px) rotate(45deg)" } : undefined}
       />
-      <path
-        d="M13.3333 3.33325C13.7015 3.33325 14 3.63173 14 3.99992C14 4.36811 13.7015 4.66659 13.3333 4.66659H2.66667C2.29848 4.66659 2 4.36811 2 3.99992C2 3.63173 2.29848 3.33325 2.66667 3.33325H13.3333Z"
-        fill="#94A3B8"
+      <span
+        className="block h-[2px] w-5 rounded-full bg-[#5d4037] transition-all duration-300"
+        style={isOpen ? { opacity: 0, transform: "scaleX(0)" } : undefined}
       />
-      <path
-        d="M13.3333 11.3333C13.7015 11.3333 14 11.6317 14 11.9999C14 12.3681 13.7015 12.6666 13.3333 12.6666H2.66667C2.29848 12.6666 2 12.3681 2 11.9999C2 11.6317 2.29848 11.3333 2.66667 11.3333H13.3333Z"
-        fill="#94A3B8"
+      <span
+        className="block h-[2px] w-5 rounded-full bg-[#5d4037] transition-all duration-300 origin-center"
+        style={isOpen ? { transform: "translateY(-7px) rotate(-45deg)" } : undefined}
       />
-    </svg>
+    </div>
   );
 }
