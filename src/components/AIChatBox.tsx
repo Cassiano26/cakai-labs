@@ -6,9 +6,9 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 
 const QUICK_REPLIES = [
-  "I need an e-commerce platform",
-  "I want to build a mobile app",
-  "I need AI chatbot integration",
+  "I need an AI strategy",
+  "I want an AI assistant",
+  "I need MLOps & deployment help",
 ];
 
 const CHAT_STORAGE_KEY = "cakai-chat-messages";
@@ -258,11 +258,11 @@ export default function AIChatBox() {
       {/* Input area */}
       <div className="border-t border-gray-100 px-5 py-4">
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
-          <input
+            <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Describe your project idea..."
+            placeholder="Describe your AI problem or goal..."
             disabled={isLoading}
             className="flex-1 rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm outline-none placeholder:text-gray-400 focus:border-[#4a3428] focus:bg-white disabled:opacity-50"
           />

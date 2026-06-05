@@ -11,13 +11,11 @@ export default function AboutCTASection() {
 
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6 text-neutral-900">
-                Need a technical partner to build your next layer?
+                Need an AI partner to define your next move?
               </h2>
 
               <p className="text-xl text-neutral-600 mb-10">
-                Whether you need software, automation, AI integration or support
-                for an existing product, Cakai Labs can help you structure and
-                deliver the right solution.
+                Whether you need an AI strategy, model prototyping, data and MLOps guidance, or governance and audits, Cakai Labs helps you structure and deliver practical AI outcomes.
               </p>
 
               <div className="flex items-center justify-center gap-4">

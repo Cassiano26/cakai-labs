@@ -10,39 +10,39 @@ type Service = {
 const services: Service[] = [
   {
     icon: Bot,
-    title: "AI Consulting & Integration",
+    title: "AI Strategy & Roadmaps",
     description:
-      "Implement AI features, from LLM integration to custom ML models. We help you build intelligent features that users actually use.",
+      "Identify high-impact AI opportunities, define value-driven roadmaps and phased delivery plans.",
   },
   {
     icon: Globe,
-    title: "Web Development",
+    title: "LLM & Assistant Design",
     description:
-      "Modern web applications built with React, Next.js, and TypeScript. Fast, scalable, and maintainable.",
+      "Design conversational flows, prompt engineering, safety and guardrails for reliable assistants.",
   },
   {
     icon: Smartphone,
-    title: "Mobile Development",
+    title: "Custom ML & Models",
     description:
-      "Native iOS and Android apps, or cross-platform solutions with React Native. Seamless user experiences across devices.",
+      "Advisory on model selection, training strategy, evaluation and prototyping for production-ready models.",
   },
   {
     icon: Database,
-    title: "Backend & APIs",
+    title: "Data & MLOps Consulting",
     description:
-      "Robust backend systems, RESTful and GraphQL APIs, database design, and cloud infrastructure.",
+      "Data strategy, pipeline design, deployment, monitoring and observability for ML systems.",
   },
   {
     icon: Zap,
-    title: "Automation",
+    title: "AI-Powered Automation",
     description:
-      "Streamline workflows with intelligent automation. From simple scripts to complex integration pipelines.",
+      "Automate decision-making and operational workflows using responsible AI techniques.",
   },
   {
     icon: Lightbulb,
-    title: "Technical Consulting",
+    title: "Technical AI Consulting",
     description:
-      "Architecture reviews, technology selection, performance optimization, and strategic technical guidance.",
+      "Architecture reviews, governance, cost optimisation and strategic technical guidance for AI initiatives.",
   },
 ];
 
@@ -52,10 +52,10 @@ export default function ServicesSection() {
       <div className="mx-auto max-w-[1440px] px-8">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-4xl font-bold text-neutral-900">
-            Our Services
+            AI Consulting Services
           </h2>
           <p className="mx-auto max-w-2xl text-xl text-neutral-600">
-            End-to-end software engineering, from concept to production.
+            Strategy, model design, data and MLOps guidance to turn AI into measurable outcomes.
           </p>
         </div>
 

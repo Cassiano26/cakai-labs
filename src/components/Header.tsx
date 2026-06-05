@@ -11,7 +11,7 @@ gsap.registerPlugin(useGSAP);
 
 const navLinks = [
   { label: "Services", href: "/#services" },
-  { label: "Work", href: "/#work" },
+  { label: "Case Studies", href: "/#work" },
   { label: "AI Demo", href: "/#ai-demo" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

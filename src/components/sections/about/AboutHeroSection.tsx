@@ -12,16 +12,16 @@ export default function AboutHeroSection() {
           </div>
 
           <h1 className="text-6xl font-bold mb-6 text-neutral-900">
-            A technical partner for companies building with software and AI.
+            A strategic partner for organizations adopting AI.
           </h1>
 
           <p className="text-xl text-neutral-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Cakai Labs is a Brazilian software engineering company combining human expertise, AI-assisted development and clear technical execution to help teams build reliable digital systems.
+            Cakai Labs is an AI consulting firm focused on strategy, responsible model design, and operationalizing AI to solve real business problems.
           </p>
 
           <div className="flex items-center justify-center gap-4 mb-16">
             <Link href="/contact#brief" className="px-8 py-4 bg-gradient-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center gap-2">
-              Start a project
+              Start an AI engagement
               <ArrowRight className="w-5 h-5" />
             </Link>
             {/* Contact us button hidden until emails are ready */}

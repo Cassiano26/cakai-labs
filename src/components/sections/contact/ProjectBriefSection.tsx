@@ -5,22 +5,22 @@ import { useSearchParams } from "next/navigation";
 import { Send, Sparkles, CheckCircle, AlertCircle } from "lucide-react";
 
 const services = [
-  "Web platform",
-  "Mobile app",
-  "Backend & APIs",
-  "Automation",
-  "AI integration",
-  "Technical consulting",
+  "AI strategy",
+  "LLM & assistant design",
+  "Custom ML & models",
+  "Data & MLOps",
+  "AI automation",
+  "Technical AI consulting",
   "Not sure yet",
 ];
 
 const SERVICE_KEY_MAP: Record<string, string> = {
-  "web-platform": "Web platform",
-  "mobile-app": "Mobile app",
-  "backend-apis": "Backend & APIs",
-  automation: "Automation",
-  "ai-integration": "AI integration",
-  "technical-consulting": "Technical consulting",
+  "ai-strategy": "AI strategy",
+  "llm-design": "LLM & assistant design",
+  "ml-models": "Custom ML & models",
+  "data-mlops": "Data & MLOps",
+  "ai-automation": "AI automation",
+  "technical-ai-consulting": "Technical AI consulting",
 };
 
 const TIMELINE_MAP: Record<string, string> = {
@@ -220,15 +220,11 @@ function ProjectBriefForm() {
         </h2>
 
         <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-          You do not need to have the full scope ready. A simple explanation of
-          the problem, current tools, users, workflow or business goal is enough
-          to start.
+          You do not need to have the full scope ready. A short description of the problem, data sources and desired outcome is enough to start.
         </p>
 
         <p className="text-lg text-neutral-600 mb-10 leading-relaxed">
-          Cakai Labs works as a technical partner for companies, agencies and
-          product teams that need reliable execution across software, automation
-          and AI.
+          Cakai Labs works as an AI consulting partner for companies and product teams seeking strategy, prototyping and production-ready AI solutions.
         </p>
 
         <div className="bg-neutral-50 rounded-2xl border border-neutral-200 p-6">
@@ -240,17 +236,17 @@ function ProjectBriefForm() {
               {
                 step: "1",
                 title: "We review your request",
-                desc: "We look at your goals, product stage, systems and technical needs.",
+                desc: "We look at your goals, data, project stage, and technical needs.",
               },
               {
                 step: "2",
                 title: "We define a possible direction",
-                desc: "We outline the likely architecture, scope, integrations and priorities.",
+                desc: "We outline a likely approach, scope, data needs and priorities.",
               },
               {
                 step: "3",
                 title: "We get back to you",
-                desc: "You receive a clear next step for discovery, implementation or proposal.",
+                desc: "You receive a clear next step for discovery, prototyping or engagement.",
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -275,7 +271,7 @@ function ProjectBriefForm() {
           Start your project brief
         </h3>
         <p className="text-neutral-600 mb-6">
-          Tell us a little about your project.
+          Tell us a little about the AI problem you want to solve.
         </p>
 
         {fromAI && (
@@ -399,10 +395,10 @@ function ProjectBriefForm() {
               >
                 <option value="">Select</option>
                 <option>Idea</option>
-                <option>Existing product</option>
+                <option>Proof of concept</option>
+                <option>Pilot</option>
+                <option>Production</option>
                 <option>Improvement</option>
-                <option>Integration</option>
-                <option>Maintenance</option>
                 <option>Not sure yet</option>
               </select>
             </div>
@@ -458,7 +454,7 @@ function ProjectBriefForm() {
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Tell us what you want to build, automate or improve..."
+              placeholder="Describe the AI outcome you want (strategy, prototype, production)..."
               className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#5d4037]/50 transition-colors resize-none"
             />
           </div>

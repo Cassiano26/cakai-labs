@@ -2,40 +2,40 @@ import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    name: "Shell First",
-    description: "Digital platform for Shell's energy retail brand in Portugal, with Microsoft Entra ID authentication, e-commerce integrations and Sanity CMS-managed content.",
-    tags: ["Web", "Mobile", "Entra ID", "Integrations", "Sanity CMS", "Next.js"],
-    href: "https://www.shellfirst.pt/",
+    name: "Customer Insights AI",
+    description: "AI strategy and recommendation system that improved customer retention through personalized insights and targeted interventions.",
+    tags: ["AI Strategy", "Recommendations", "LLM"],
+    href: "#",
   },
   {
-    name: "PRIO Transição Energética",
-    description: "Institutional web platform for PRIO's energy transition initiative, communicating sustainability projects and green energy goals with dynamic content management.",
-    tags: ["Web", "Next.js", "Sanity CMS"],
-    href: "https://transicaoenergetica.prio.pt/",
+    name: "Support Assistant",
+    description: "Design and prompt engineering for an LLM-powered support assistant that reduced first-response time and deflected common tickets.",
+    tags: ["LLM", "Prompting", "Automation"],
+    href: "#",
   },
   {
-    name: "Synere",
-    description: "Corporate website for Synere, a Portuguese industrial tech-metal group with 200+ people, showcasing its brands, engineering solutions and ESG commitments.",
-    tags: ["Web", "Next.js", "Sanity CMS"],
-    href: "https://www.synere.pt/pt",
+    name: "Document Understanding",
+    description: "RAG-based document search and summarization pipeline for faster decision-making across large document collections.",
+    tags: ["RAG", "Search", "Summarization"],
+    href: "#",
   },
   {
-    name: "Inovocorte",
-    description: "Corporate and commercial platform for Inovocorte, an end-to-end metal manufacturing partner serving food, retail and industrial equipment sectors across Europe.",
-    tags: ["Web", "Next.js", "Sanity CMS"],
-    href: "https://inovocorte.pt",
+    name: "Operational AI",
+    description: "MLOps and monitoring implementation to deploy models reliably and keep them performant in production.",
+    tags: ["MLOps", "Monitoring", "Deployment"],
+    href: "#",
   },
   {
-    name: "Muvv",
-    description: "Brand website for Muvv, a Synere company specialising in precision-engineered frames for extendable tables, combining modular design with manufacturing excellence.",
-    tags: ["Web", "Next.js", "Sanity CMS"],
-    href: "https://muvv.pt",
+    name: "Prototype Studio",
+    description: "Fast prototyping of AI features to validate value and gather data for model improvement.",
+    tags: ["Prototyping", "Data", "Evaluation"],
+    href: "#",
   },
   {
-    name: "Antropos",
-    description: "Product and brand website for Antropos, a textile machinery company that designs human-driven automation — ergonomic machines that amplify human intelligence in manufacturing.",
-    tags: ["Web", "Next.js", "Sanity CMS"],
-    href: "https://antropos.pt",
+    name: "Ethics & Governance Review",
+    description: "Responsible AI assessment, bias analysis and governance recommendations for safer deployments.",
+    tags: ["Governance", "Ethics", "Audit"],
+    href: "#",
   },
 ];
 
@@ -48,8 +48,7 @@ export default function WorkSection() {
             Selected Work
           </h2>
           <p className="mx-auto max-w-2xl text-xl text-neutral-600">
-            Projects delivered in partnership with Hypnotic and other leading
-            organizations.
+            Selected AI consulting engagements and outcomes.
           </p>
         </div>
 

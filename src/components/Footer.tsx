@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const servicesLinks = [
   { label: "AI Consulting", href: "#services" },
-  { label: "Web Development", href: "#services" },
-  { label: "Mobile Development", href: "#services" },
-  { label: "Automation", href: "#services" },
+  { label: "LLM & Assistants", href: "#services" },
+  { label: "MLOps & Data", href: "#services" },
+  { label: "AI Automation", href: "#services" },
 ];
 
 const companyLinks = [
@@ -28,7 +28,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-neutral-600">
-              Software, automation and AI.
+              AI strategy, models and production-grade MLOps.
             </p>
           </div>
 

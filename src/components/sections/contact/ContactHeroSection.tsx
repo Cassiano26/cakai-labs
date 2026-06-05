@@ -1,12 +1,12 @@
 import { ArrowDown } from "lucide-react";
 
 const tags = [
-  "Web platforms",
-  "Mobile apps",
-  "Backend & APIs",
-  "Automation",
-  "AI integration",
-  "Technical consulting",
+  "AI strategy",
+  "LLM & Assistants",
+  "MLOps & Data",
+  "AI automation",
+  "Model audits",
+  "Technical AI consulting",
 ];
 
 export default function ContactHeroSection() {
@@ -21,12 +21,11 @@ export default function ContactHeroSection() {
           </div>
 
           <h1 className="text-6xl font-bold mb-6 text-neutral-900 leading-tight">
-            Let&apos;s build something useful.
+            Let&apos;s design your AI solution.
           </h1>
 
           <p className="text-xl text-neutral-600 mb-10 leading-relaxed">
-            Tell us what you want to build, automate or improve. We&apos;ll
-            review your request and help you define the next technical step.
+            Describe the AI outcome you want — whether it is strategy, prototyping, or production deployment — and we&apos;ll help define the next steps.
           </p>
 
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -41,8 +40,7 @@ export default function ContactHeroSection() {
           </div>
 
           <p className="text-sm text-neutral-500 mb-14">
-            For web platforms, mobile apps, backend systems, automations and
-            AI-powered workflows.
+            For AI strategy, model design, data pipelines, automation and MLOps.
           </p>
 
           <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center md:justify-center">

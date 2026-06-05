@@ -2,34 +2,34 @@
 
 const prompts = [
   {
-    title: "I need a web platform",
-    desc: "For dashboards, portals, websites, internal systems or SaaS products.",
-    message: "I need a web platform. I'm looking for help building a digital product — it could be a customer-facing website, an internal dashboard, a client portal or a SaaS application. I'd like to discuss the scope, stack and timeline.",
+    title: "I need an AI strategy",
+    desc: "Define where AI adds value and build a phased roadmap.",
+    message: "I need an AI strategy. I want to identify high-impact use cases, prioritize them and define a phased roadmap to deliver value with minimal risk.",
   },
   {
-    title: "I need a mobile app",
-    desc: "For iOS, Android or cross-platform app ideas.",
-    message: "I need a mobile app. I have an idea for an iOS, Android or cross-platform application and I'd like to explore how to bring it to life — from product definition to development and launch.",
+    title: "I want an assistant or chatbot",
+    desc: "Design conversational flows, safety and prompt strategy.",
+    message: "I want an AI assistant. I'm interested in a conversational assistant to help users or employees, and I need help designing prompts, safety, and UX.",
   },
   {
-    title: "I want to automate a workflow",
-    desc: "For repetitive tasks, approvals, notifications, reports or data movement.",
-    message: "I want to automate a workflow. There are repetitive or manual processes in my business that I'd like to automate — things like approvals, notifications, data movement, report generation or internal operations. I'd like to explore what's possible.",
+    title: "I want to automate decisions",
+    desc: "Use AI to automate repetitive decisions and workflows.",
+    message: "I want to automate decisions with AI. There are repetitive decisions in our process that could be improved by models or ML-driven automation.",
   },
   {
-    title: "I want to add AI features",
-    desc: "For assistants, summarization, classification, search, RAG or AI-powered workflows.",
-    message: "I want to add AI features to my product or process. I'm interested in exploring AI capabilities such as assistants, document summarization, classification, semantic search, RAG pipelines or AI-powered automation. I'd like to understand what's feasible and how to integrate it.",
+    title: "I need MLOps & deployment",
+    desc: "Deploy, monitor and maintain models in production.",
+    message: "I need MLOps help. I want guidance on deploying models reliably, monitoring performance and setting up retraining pipelines.",
   },
   {
-    title: "I need backend or API support",
-    desc: "For databases, integrations, authentication, webhooks or business logic.",
-    message: "I need backend or API support. I need help with server-side development — this could involve building or improving APIs, connecting third-party services, setting up authentication, managing databases or implementing core business logic.",
+    title: "I need data & labeling",
+    desc: "Data collection, labeling and pipelines for model training.",
+    message: "I need help with data. I want to prepare datasets, labeling workflows and pipelines to train and evaluate models.",
   },
   {
-    title: "I need technical guidance",
-    desc: "For architecture, stack decisions, roadmap, code review or implementation planning.",
-    message: "I need technical guidance. I'm looking for an experienced technical partner to help me think through architecture decisions, choose the right stack, review existing code, plan a roadmap or structure an implementation approach before or during development.",
+    title: "I need governance or audits",
+    desc: "Bias analysis, risk assessment and governance recommendations.",
+    message: "I need an AI governance review. I want a bias check, risk assessment and recommendations for safer deployment.",
   },
 ];
 

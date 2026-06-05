@@ -38,12 +38,12 @@ export const contactSubmission = defineType({
       of: [{ type: "string" }],
       options: {
         list: [
-          { title: "Web platform", value: "Web platform" },
-          { title: "Mobile app", value: "Mobile app" },
-          { title: "Backend & APIs", value: "Backend & APIs" },
-          { title: "Automation", value: "Automation" },
-          { title: "AI integration", value: "AI integration" },
-          { title: "Technical consulting", value: "Technical consulting" },
+          { title: "AI strategy", value: "AI strategy" },
+          { title: "LLM & assistant design", value: "LLM & assistant design" },
+          { title: "Custom ML & models", value: "Custom ML & models" },
+          { title: "Data & MLOps", value: "Data & MLOps" },
+          { title: "AI automation", value: "AI automation" },
+          { title: "Technical AI consulting", value: "Technical AI consulting" },
           { title: "Not sure yet", value: "Not sure yet" },
         ],
       },
@@ -60,10 +60,10 @@ export const contactSubmission = defineType({
       options: {
         list: [
           "Idea",
-          "Existing product",
+          "Proof of concept",
+          "Pilot",
+          "Production",
           "Improvement",
-          "Integration",
-          "Maintenance",
           "Not sure yet",
         ],
       },

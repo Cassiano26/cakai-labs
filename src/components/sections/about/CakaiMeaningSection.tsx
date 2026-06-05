@@ -7,22 +7,22 @@ const layers = [
   {
     num: "02",
     title: "Design",
-    desc: "Architecture, flows, integrations and product logic.",
+    desc: "Solution design: model architecture, prompts, data flows and product logic.",
   },
   {
     num: "03",
-    title: "Build",
-    desc: "Web, mobile, backend, APIs and internal systems.",
+    title: "Prepare Data",
+    desc: "Data collection, cleaning, labeling and pipelines for reliable AI outcomes.",
   },
   {
     num: "04",
-    title: "Automate",
-    desc: "Workflows, data movement, notifications and operational processes.",
+    title: "Model & Prototype",
+    desc: "Rapid model prototyping, evaluation and iteration to validate value.",
   },
   {
     num: "05",
-    title: "Integrate AI",
-    desc: "LLMs, RAG, assistants, classification, summarization and intelligent features.",
+    title: "Deploy & MLOps",
+    desc: "Deploy models, monitoring, retraining and operational processes for production.",
   },
   {
     num: "06",
@@ -56,16 +56,15 @@ export default function CakaiMeaningSection() {
               interface design, backend systems, APIs, data pipelines,
               automation workflows and AI capabilities. The result is not just
               a feature — it is a complete technical solution designed to work
-              in the real world.
             </p>
+            <p className="text-lg text-neutral-600 leading-relaxed">
+              At Cakai Labs, those layers focus on AI adoption: understanding business goals, preparing data, prototyping models, deploying with MLOps, and maintaining responsible AI systems.
+            </p>
+            
+
+            
           </div>
-
-          <div className="bg-gradient-to-br from-[#5d4037]/5 to-white rounded-2xl p-8 border border-neutral-200">
-            <h3 className="text-2xl font-semibold mb-6 text-neutral-900">
-              Built in layers
-            </h3>
-
-            <div className="space-y-4">
+          <div className="space-y-4">
               {layers.map((layer) => (
                 <div key={layer.num} className="flex gap-4">
                   <div className="text-lg font-bold text-[#5d4037] flex-shrink-0">
@@ -80,7 +79,6 @@ export default function CakaiMeaningSection() {
                 </div>
               ))}
             </div>
-          </div>
         </div>
       </div>
     </section>
