@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function AboutHeroSection() {
   return (
-    <section className="py-12 md:py-12 md:py-24 bg-gradient-to-b from-neutral-50 to-white">
+    <section className="py-12 md:py-24 bg-gradient-to-b from-neutral-50 to-white">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#5d4037]/10 rounded-full border border-[#5d4037]/20 mb-6">
