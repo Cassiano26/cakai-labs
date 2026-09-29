@@ -1,60 +1,27 @@
-import { Bot, Globe, Smartphone, Database, Zap, Lightbulb, ArrowRight } from "lucide-react";
+"use client";
+
+import { Bot, Globe, Smartphone, Database, Zap, Lightbulb } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-type Service = {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  accent: string;
-};
-
-const services: Service[] = [
-  {
-    icon: Bot,
-    title: "AI Strategy & Roadmaps",
-    description:
-      "Identify high-impact AI opportunities, define value-driven roadmaps and phased delivery plans.",
-    accent: "from-amber-900 to-[#795548]",
-  },
-  {
-    icon: Globe,
-    title: "LLM & Assistant Design",
-    description:
-      "Design conversational flows, prompt engineering, safety and guardrails for reliable assistants.",
-    accent: "from-[#5d4037] to-[#795548]",
-  },
-  {
-    icon: Smartphone,
-    title: "Custom ML & Models",
-    description:
-      "Advisory on model selection, training strategy, evaluation and prototyping for production-ready models.",
-    accent: "from-[#795548] to-amber-700",
-  },
-  {
-    icon: Database,
-    title: "Data & MLOps Consulting",
-    description:
-      "Data strategy, pipeline design, deployment, monitoring and observability for ML systems.",
-    accent: "from-[#5d4037] to-amber-900",
-  },
-  {
-    icon: Zap,
-    title: "AI-Powered Automation",
-    description:
-      "Automate decision-making and operational workflows using responsible AI techniques.",
-    accent: "from-amber-800 to-[#795548]",
-  },
-  {
-    icon: Lightbulb,
-    title: "Technical AI Consulting",
-    description:
-      "Architecture reviews, governance, cost optimisation and strategic technical guidance for AI initiatives.",
-    accent: "from-[#795548] to-[#5d4037]",
-  },
+const serviceIcons: LucideIcon[] = [Bot, Globe, Smartphone, Database, Zap, Lightbulb];
+const serviceAccents = [
+  "from-amber-900 to-[#795548]",
+  "from-[#5d4037] to-[#795548]",
+  "from-[#795548] to-amber-700",
+  "from-[#5d4037] to-amber-900",
+  "from-amber-800 to-[#795548]",
+  "from-[#795548] to-[#5d4037]",
 ];
 
 export default function ServicesSection() {
+  const { t } = useLanguage();
+  const services = t.services.items.map((item, i) => ({
+    ...item,
+    icon: serviceIcons[i],
+    accent: serviceAccents[i],
+  }));
+
   return (
     <section id="services" className="relative overflow-hidden bg-white py-12 md:py-24">
       {/* Subtle background */}
@@ -66,17 +33,16 @@ export default function ServicesSection() {
         <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <span className="mb-3 block text-sm font-medium uppercase tracking-widest text-[#795548]">
-              What we do
+              {t.services.sectionLabel}
             </span>
             <h2 className="text-4xl font-bold text-neutral-900 md:text-5xl">
-              AI Consulting
+              {t.services.heading1}
               <br />
-              <span className="text-neutral-400">Services</span>
+              <span className="text-neutral-400">{t.services.heading2}</span>
             </h2>
           </div>
           <p className="max-w-md text-lg text-neutral-600 md:text-right">
-            Strategy, model design, data and MLOps guidance to turn AI into
-            measurable outcomes.
+            {t.services.subheading}
           </p>
         </div>
 

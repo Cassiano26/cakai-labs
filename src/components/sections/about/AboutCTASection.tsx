@@ -1,7 +1,11 @@
-import { ArrowRight, Mail } from "lucide-react";
+"use client";
+
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function AboutCTASection() {
+  const { t } = useLanguage();
   return (
     <section className="py-12 md:py-24 bg-neutral-50">
       <div className="max-w-[1440px] mx-auto px-8">
@@ -11,16 +15,16 @@ export default function AboutCTASection() {
 
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6 text-neutral-900">
-                Need an AI partner to define your next move?
+                {t.aboutCTA.heading}
               </h2>
 
               <p className="text-xl text-neutral-600 mb-10">
-                Whether you need an AI strategy, model prototyping, data and MLOps guidance, or governance and audits, Cakai Labs helps you structure and deliver practical AI outcomes.
+                {t.aboutCTA.subheading}
               </p>
 
               <div className="flex items-center justify-center gap-4">
                 <Link href="/contact#brief" className="px-8 py-4 bg-gradient-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center gap-2">
-                  Start a project
+                  {t.aboutCTA.cta}
                   <ArrowRight className="w-5 h-5" />
                 </Link>
 

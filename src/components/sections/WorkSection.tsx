@@ -1,65 +1,22 @@
-import { ExternalLink, Sparkles, ArrowUpRight } from "lucide-react";
+"use client";
+
+import { Sparkles, ArrowUpRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const featuredProjects = [
-  {
-    name: "Yetiman",
-    label: "AI Agency",
-    description:
-      "Yetiman is the AI brand powering Hypnotic Agency — bringing artificial intelligence into every layer of brand strategy, creative production, and digital marketing.",
-    longDescription:
-      "From AI-assisted copywriting and visual direction to intelligent campaign optimisation, Yetiman defines what a future-ready creative agency looks like.",
-    tags: ["AI Strategy", "Brand Identity", "Creative AI", "Agency"],
-    href: "https://www.yetiman.ai/",
-    image:
-      "https://framerusercontent.com/images/05gyHi5YAF785poD4KnN4ywffuk.png?scale-down-to=2048&width=2788&height=2116",
-  },
-  {
-    name: "Yetify",
-    label: "Brand & GEO Platform",
-    description:
-      "Yetify is a platform for brand evaluation and Generative Engine Optimisation (GEO) — helping brands understand how they appear in AI-generated answers across ChatGPT, Gemini, and Perplexity.",
-    longDescription:
-      "As search shifts from links to AI-generated answers, Yetify gives brands the visibility and tools to shape their narrative in the generative web.",
-    tags: ["GEO", "Brand Audit", "AI Visibility", "LLM Optimisation"],
-    href: "https://yetify.ai/",
-    image:
-      "https://cdn.sanity.io/images/rldpvjbx/production/83f5d850a669e53a7d2bac08ae5eb9acd5de62c6-2592x1738.png?w=3840&q=100&auto=format&fit=max",
-  },
-];
-
-const otherProjects = [
-  {
-    name: "Customer Insights AI",
-    description:
-      "AI strategy and recommendation system that improved customer retention through personalised insights.",
-    tags: ["AI Strategy", "Recommendations", "LLM"],
-    href: "#",
-  },
-  {
-    name: "Support Assistant",
-    description:
-      "LLM-powered support assistant that reduced first-response time and deflected common tickets.",
-    tags: ["LLM", "Prompting", "Automation"],
-    href: "#",
-  },
-  {
-    name: "Document Understanding",
-    description:
-      "RAG-based document search and summarisation pipeline for faster decision-making.",
-    tags: ["RAG", "Search", "Summarisation"],
-    href: "#",
-  },
-  {
-    name: "Operational AI",
-    description:
-      "MLOps and monitoring implementation to deploy models reliably in production.",
-    tags: ["MLOps", "Monitoring", "Deployment"],
-    href: "#",
-  },
+const projectImages = [
+  "https://framerusercontent.com/images/05gyHi5YAF785poD4KnN4ywffuk.png?scale-down-to=2048&width=2788&height=2116",
+  "https://cdn.sanity.io/images/rldpvjbx/production/83f5d850a669e53a7d2bac08ae5eb9acd5de62c6-2592x1738.png?w=3840&q=100&auto=format&fit=max",
 ];
 
 export default function WorkSection() {
+  const { t } = useLanguage();
+  const featuredProjects = t.work.featuredProjects.map((p, i) => ({
+    ...p,
+    image: projectImages[i],
+  }));
+  const otherProjects = t.work.otherProjects;
+
   return (
     <section id="work" className="relative bg-neutral-50 py-12 md:py-24">
       <div className="mx-auto max-w-[1440px] px-8">
@@ -67,14 +24,13 @@ export default function WorkSection() {
         <div className="mb-16 text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#5d4037]/20 bg-[#5d4037]/10 px-4 py-1.5 text-sm text-[#5d4037]">
             <Sparkles className="h-3.5 w-3.5" />
-            Selected Work
+            {t.work.badge}
           </div>
           <h2 className="mb-4 text-4xl font-bold text-neutral-900">
-            Projects we&apos;re building
+            {t.work.heading}
           </h2>
           <p className="mx-auto max-w-2xl text-xl text-neutral-600">
-            From AI brand strategy to generative engine optimisation — real
-            products solving real problems.
+            {t.work.subheading}
           </p>
         </div>
 
@@ -139,7 +95,7 @@ export default function WorkSection() {
         {/* Divider */}
         <div className="mb-8 flex items-center gap-4">
           <div className="h-px flex-1 bg-neutral-200" />
-          <span className="text-sm text-neutral-400">More engagements</span>
+          <span className="text-sm text-neutral-400">{t.work.moreEngagements}</span>
           <div className="h-px flex-1 bg-neutral-200" />
         </div>
 

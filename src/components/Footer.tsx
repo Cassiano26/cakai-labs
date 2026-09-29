@@ -1,19 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-
-const servicesLinks = [
-  { label: "AI Consulting", href: "#services" },
-  { label: "LLM & Assistants", href: "#services" },
-  { label: "MLOps & Data", href: "#services" },
-  { label: "AI Automation", href: "#services" },
-];
-
-const companyLinks = [
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const servicesLinks = [
+    { label: t.footer.servicesLinks.aiConsulting, href: "#services" },
+    { label: t.footer.servicesLinks.llmAssistants, href: "#services" },
+    { label: t.footer.servicesLinks.mlopsData, href: "#services" },
+    { label: t.footer.servicesLinks.aiAutomation, href: "#services" },
+  ];
+
+  const companyLinks = [
+    { label: t.footer.companyLinks.about, href: "#about" },
+    { label: t.footer.companyLinks.contact, href: "#contact" },
+  ];
+
   return (
     <footer className="border-t border-neutral-200 bg-white">
       <div className="mx-auto max-w-360 px-8 py-12">
@@ -28,12 +33,12 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-neutral-600">
-              AI strategy, models and production-grade MLOps.
+              {t.footer.tagline}
             </p>
           </div>
 
-          <div >
-            <h4 className="mb-4 font-semibold text-neutral-900">Services</h4>
+          <div>
+            <h4 className="mb-4 font-semibold text-neutral-900">{t.footer.services}</h4>
             <ul className="space-y-2 text-sm text-neutral-600">
               {servicesLinks.map((link) => (
                 <li key={link.label}>
@@ -49,7 +54,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 font-semibold text-neutral-900">Company</h4>
+            <h4 className="mb-4 font-semibold text-neutral-900">{t.footer.company}</h4>
             <ul className="space-y-2 text-sm text-neutral-600">
               {companyLinks.map((link) => (
                 <li key={link.label}>
@@ -66,13 +71,13 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 border-t border-neutral-200 pt-8 text-sm text-neutral-600 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 Cakai Labs. All rights reserved.</p>
+          <p>{t.footer.copyright}</p>
           <div className="flex items-center gap-6">
             <Link href="#" className="transition-colors hover:text-[#5d4037]">
-              Privacy Policy
+              {t.footer.privacyPolicy}
             </Link>
             <Link href="#" className="transition-colors hover:text-[#5d4037]">
-              Terms of Service
+              {t.footer.termsOfService}
             </Link>
           </div>
         </div>

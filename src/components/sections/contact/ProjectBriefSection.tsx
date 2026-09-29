@@ -3,16 +3,7 @@
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Send, Sparkles, CheckCircle, AlertCircle } from "lucide-react";
-
-const services = [
-  "AI strategy",
-  "LLM & assistant design",
-  "Custom ML & models",
-  "Data & MLOps",
-  "AI automation",
-  "Technical AI consulting",
-  "Not sure yet",
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const SERVICE_KEY_MAP: Record<string, string> = {
   "ai-strategy": "AI strategy",
@@ -43,6 +34,8 @@ function getStoredFormData(): Record<string, unknown> | null {
 }
 
 function ProjectBriefForm() {
+  const { t } = useLanguage();
+  const services = t.projectBrief.services;
   const searchParams = useSearchParams();
   const [initialData] = useState(getStoredFormData);
 
@@ -125,7 +118,7 @@ function ProjectBriefForm() {
 
     if (!name || !email || !country || !message || selectedServices.length === 0 || !projectStage || !timeline || !budgetRange) {
       console.log("[Form] Validation failed: missing required fields");
-      setSubmitError("Please fill in all required fields.");
+      setSubmitError(t.projectBrief.validationError);
       return;
     }
 
@@ -186,7 +179,7 @@ function ProjectBriefForm() {
 
       if (!res.ok) {
         console.error("[Form] API returned error:", data.error);
-        setSubmitError(data.error || "Something went wrong. Please try again.");
+        setSubmitError(data.error || t.projectBrief.networkError);
       } else {
         console.log("[Form] Success! Clearing form.");
         setSubmitSuccess(true);
@@ -194,7 +187,7 @@ function ProjectBriefForm() {
       }
     } catch (err) {
       console.error("[Form] Catch block error:", err);
-      setSubmitError("Network error. Please try again.");
+      setSubmitError(t.projectBrief.networkError);
     } finally {
       setIsSubmitting(false);
     }
@@ -212,43 +205,27 @@ function ProjectBriefForm() {
       {/* Left column */}
       <div>
         <div className="inline-block px-3 py-1 bg-neutral-100 rounded-full text-sm text-neutral-600 mb-4">
-          Project brief
+          {t.projectBrief.badge}
         </div>
 
         <h2 className="text-4xl font-bold mb-6 text-neutral-900">
-          Share the context. We&apos;ll help shape the technical path.
+          {t.projectBrief.heading}
         </h2>
 
         <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-          You do not need to have the full scope ready. A short description of the problem, data sources and desired outcome is enough to start.
+          {t.projectBrief.p1}
         </p>
 
         <p className="text-lg text-neutral-600 mb-10 leading-relaxed">
-          Cakai Labs works as an AI consulting partner for companies and product teams seeking strategy, prototyping and production-ready AI solutions.
+          {t.projectBrief.p2}
         </p>
 
         <div className="bg-neutral-50 rounded-2xl border border-neutral-200 p-6">
           <h3 className="font-semibold text-neutral-900 mb-5">
-            What happens next
+            {t.projectBrief.whatHappensNext}
           </h3>
           <div className="space-y-5">
-            {[
-              {
-                step: "1",
-                title: "We review your request",
-                desc: "We look at your goals, data, project stage, and technical needs.",
-              },
-              {
-                step: "2",
-                title: "We define a possible direction",
-                desc: "We outline a likely approach, scope, data needs and priorities.",
-              },
-              {
-                step: "3",
-                title: "We get back to you",
-                desc: "You receive a clear next step for discovery, prototyping or engagement.",
-              },
-            ].map((item) => (
+            {t.projectBrief.steps.map((item) => (
               <div key={item.step} className="flex gap-4">
                 <div className="w-7 h-7 rounded-full bg-linear-to-br from-[#5d4037] to-[#795548] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                   {item.step}
@@ -268,17 +245,17 @@ function ProjectBriefForm() {
       {/* Right column — form */}
       <div className="bg-white rounded-2xl border border-neutral-200 shadow-xl p-8">
         <h3 className="text-2xl font-bold text-neutral-900 mb-1">
-          Start your project brief
+          {t.projectBrief.formTitle}
         </h3>
         <p className="text-neutral-600 mb-6">
-          Tell us a little about the AI problem you want to solve.
+          {t.projectBrief.formSubtitle}
         </p>
 
         {fromAI && (
           <div className="mb-6 flex items-center gap-2.5 rounded-xl border border-[#5d4037]/20 bg-linear-to-r from-[#5d4037]/5 to-[#795548]/5 px-4 py-3">
             <Sparkles className="w-4 h-4 text-[#795548] shrink-0" />
             <p className="text-sm text-[#5d4037]">
-              Pre-filled from your AI consultation — feel free to adjust.
+              {t.projectBrief.aiPrefillNote}
             </p>
           </div>
         )}
@@ -287,9 +264,9 @@ function ProjectBriefForm() {
           {submitSuccess ? (
             <div className="py-10 flex flex-col items-center gap-4 text-center">
               <CheckCircle className="w-12 h-12 text-green-500" />
-              <h4 className="text-xl font-bold text-neutral-900">Brief sent!</h4>
+              <h4 className="text-xl font-bold text-neutral-900">{t.projectBrief.successTitle}</h4>
               <p className="text-neutral-600">
-                Thanks! We&apos;ll review your request and get back to you shortly.
+                {t.projectBrief.successMessage}
               </p>
             </div>
           ) : (
@@ -297,25 +274,25 @@ function ProjectBriefForm() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Name <span className="text-red-500">*</span>
+                {t.projectBrief.fields.name} <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Your name"
+                placeholder={t.projectBrief.fields.namePlaceholder}
                 className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#5d4037]/50 transition-colors"
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Company
+                {t.projectBrief.fields.company}
               </label>
               <input
                 type="text"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                placeholder="Company name"
+                placeholder={t.projectBrief.fields.companyPlaceholder}
                 className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#5d4037]/50 transition-colors"
               />
             </div>
@@ -324,25 +301,25 @@ function ProjectBriefForm() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Email <span className="text-red-500">*</span>
+                {t.projectBrief.fields.email} <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@company.com"
+                placeholder={t.projectBrief.fields.emailPlaceholder}
                 className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#5d4037]/50 transition-colors"
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Country <span className="text-red-500">*</span>
+                {t.projectBrief.fields.country} <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                placeholder="Where are you based?"
+                placeholder={t.projectBrief.fields.countryPlaceholder}
                 className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#5d4037]/50 transition-colors"
               />
             </div>
@@ -350,20 +327,20 @@ function ProjectBriefForm() {
 
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-              Website
+              {t.projectBrief.fields.website}
             </label>
             <input
               type="url"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
-              placeholder="https://"
+              placeholder={t.projectBrief.fields.websitePlaceholder}
               className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#5d4037]/50 transition-colors"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-2">
-              Service interest <span className="text-red-500">*</span>
+              {t.projectBrief.fields.services} <span className="text-red-500">*</span>
             </label>
             <div className="flex flex-wrap gap-2">
               {services.map((service) => (
@@ -386,7 +363,7 @@ function ProjectBriefForm() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Project stage <span className="text-red-500">*</span>
+                {t.projectBrief.fields.projectStage} <span className="text-red-500">*</span>
               </label>
               <select
                 value={projectStage}
@@ -394,17 +371,12 @@ function ProjectBriefForm() {
                 className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-700 focus:outline-none focus:border-[#5d4037]/50 transition-colors appearance-none"
               >
                 <option value="">Select</option>
-                <option>Idea</option>
-                <option>Proof of concept</option>
-                <option>Pilot</option>
-                <option>Production</option>
-                <option>Improvement</option>
-                <option>Not sure yet</option>
+                {t.projectBrief.fields.projectStageOptions.map((o) => <option key={o}>{o}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Timeline <span className="text-red-500">*</span>
+                {t.projectBrief.fields.timeline} <span className="text-red-500">*</span>
               </label>
               <select
                 value={timeline}
@@ -412,15 +384,12 @@ function ProjectBriefForm() {
                 className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-700 focus:outline-none focus:border-[#5d4037]/50 transition-colors appearance-none"
               >
                 <option value="">Select</option>
-                <option>Urgent</option>
-                <option>1–3 months</option>
-                <option>3–6 months</option>
-                <option>Flexible</option>
+                {t.projectBrief.fields.timelineOptions.map((o) => <option key={o}>{o}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-                Budget range <span className="text-red-500">*</span>
+                {t.projectBrief.fields.budgetRange} <span className="text-red-500">*</span>
               </label>
               <select
                 value={budgetRange}
@@ -428,11 +397,7 @@ function ProjectBriefForm() {
                 className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-700 focus:outline-none focus:border-[#5d4037]/50 transition-colors appearance-none"
               >
                 <option value="">Select</option>
-                <option>Not defined yet</option>
-                <option>Small project</option>
-                <option>Medium project</option>
-                <option>Larger project</option>
-                <option>Prefer to discuss</option>
+                {t.projectBrief.fields.budgetRangeOptions.map((o) => <option key={o}>{o}</option>)}
               </select>
             </div>
           </div>
@@ -440,7 +405,7 @@ function ProjectBriefForm() {
           {prefilledBudget && (
             <div className="rounded-lg border border-[#5d4037]/20 bg-[#5d4037]/5 px-4 py-3">
               <p className="text-sm text-[#5d4037]">
-                <span className="font-medium">AI estimate:</span>{" "}
+                <span className="font-medium">{t.projectBrief.aiEstimateLabel}:</span>{" "}
                 {prefilledBudget}
               </p>
             </div>
@@ -448,13 +413,13 @@ function ProjectBriefForm() {
 
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-1.5">
-              Message <span className="text-red-500">*</span>
+              {t.projectBrief.fields.message} <span className="text-red-500">*</span>
             </label>
             <textarea
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Describe the AI outcome you want (strategy, prototype, production)..."
+              placeholder={t.projectBrief.fields.messagePlaceholder}
               className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-[#5d4037]/50 transition-colors resize-none"
             />
           </div>
@@ -464,7 +429,7 @@ function ProjectBriefForm() {
             disabled={isSubmitting}
             className="w-full px-8 py-4 bg-linear-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {isSubmitting ? "Sending…" : "Send project brief"}
+            {isSubmitting ? t.projectBrief.submitting : t.projectBrief.submit}
             {!isSubmitting && <Send className="w-5 h-5" />}
           </button>
 
@@ -476,14 +441,14 @@ function ProjectBriefForm() {
           )}
 
           <p className="text-xs text-neutral-500 text-center">
-            We&apos;ll only use your information to respond to your request.
+            {t.projectBrief.privacyNote}
           </p>
           <p className="text-xs text-neutral-400 text-center">
-            This site is protected by reCAPTCHA and the Google{" "}
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">Privacy Policy</a>{" "}
+            {t.projectBrief.recaptchaNote}{" "}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">{t.projectBrief.privacyPolicy}</a>{" "}
             and{" "}
-            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">Terms of Service</a>{" "}
-            apply.
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">{t.projectBrief.termsOfService}</a>{" "}
+            {t.projectBrief.apply}
           </p>
             </>
           )}

@@ -3,6 +3,7 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useRef, useEffect } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const stats = [
   { value: "50+", label: "AI projects delivered" },
@@ -12,6 +13,8 @@ const stats = [
 ];
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+  const stats = t.hero.stats;
   const orb1Ref = useRef<HTMLDivElement>(null);
   const orb2Ref = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -95,12 +98,12 @@ export default function HeroSection() {
           {/* Badge */}
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#795548]/30 bg-[#795548]/10 px-4 py-1.5 text-sm text-[#c8a882]">
             <Sparkles className="h-3.5 w-3.5" />
-            AI Strategy & Consulting
+            {t.hero.badge}
           </div>
 
           {/* Headline */}
           <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-white md:text-7xl">
-            From idea to{" "}
+            {t.hero.heading1}{" "}
             <span
               className="bg-clip-text text-transparent"
               style={{
@@ -108,16 +111,14 @@ export default function HeroSection() {
                   "linear-gradient(135deg, #c8a882 0%, #a1745a 50%, #c8a882 100%)",
               }}
             >
-              impact,
+              {t.hero.headingHighlight}
             </span>
             <br />
-            with AI.
+            {t.hero.heading2}
           </h1>
 
           <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-neutral-400">
-            Cakai Labs partners with companies and product teams to define AI
-            strategy, design responsible models, and deliver practical AI
-            solutions that drive measurable business value.
+            {t.hero.subheading}
           </p>
 
           {/* CTAs */}
@@ -126,14 +127,14 @@ export default function HeroSection() {
               href="/contact#brief"
               className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#5d4037] to-[#795548] px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#5d4037]/40 md:w-auto"
             >
-              Start an AI engagement
+              {t.hero.cta1}
               <ArrowRight className="h-5 w-5" />
             </Link>
             <a
               href="#work"
               className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10 md:w-auto"
             >
-              View case studies
+              {t.hero.cta2}
             </a>
           </div>
         </div>

@@ -1,50 +1,36 @@
-import { Brain, Eye, Zap } from "lucide-react";
+"use client";
 
-const cards = [
-  {
-    icon: Brain,
-    title: "AI in the process",
-    description:
-      "We use AI tools to support coding, documentation, debugging, planning and implementation.",
-  },
-  {
-    icon: Eye,
-    title: "Human supervision",
-    description:
-      "Every solution is reviewed, structured and validated by professionals with technical responsibility.",
-  },
-  {
-    icon: Zap,
-    title: "Better delivery",
-    description:
-      "The goal is not automation for its own sake. The goal is faster, clearer and more reliable technical execution.",
-  },
-];
+import { Brain, Eye, Zap } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+const cardIcons: LucideIcon[] = [Brain, Eye, Zap];
 
 export default function AIApproachSection() {
+  const { t } = useLanguage();
+  const cards = t.aiApproach.cards.map((card, i) => ({
+    ...card,
+    icon: cardIcons[i],
+  }));
+
   return (
     <section className="py-12 md:py-24 bg-neutral-50">
       <div className="max-w-[1440px] mx-auto px-8">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <div className="inline-block px-3 py-1 bg-white rounded-full text-sm text-neutral-600 mb-4 border border-neutral-200">
-            How we use AI
+            {t.aiApproach.badge}
           </div>
 
           <h2 className="text-4xl font-bold mb-6 text-neutral-900">
-            AI-assisted development, supervised by professionals.
+            {t.aiApproach.heading}
           </h2>
 
           <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-            We use AI as part of our engineering process to accelerate research,
-            programming, documentation, testing, prototyping and analysis. But
-            every decision, implementation and delivery is guided by technical
-            professionals.
+            {t.aiApproach.p1}
           </p>
 
           <p className="text-lg text-neutral-600 leading-relaxed">
-            Our approach combines human judgment with AI-assisted execution.
-            This allows us to move faster without losing quality, context,
-            maintainability or responsibility.
+            {t.aiApproach.p2}
           </p>
         </div>
 

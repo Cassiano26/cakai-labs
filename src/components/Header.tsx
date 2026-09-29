@@ -7,21 +7,23 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SidebarToggleIcon } from "./SidebarToggleIcon";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 gsap.registerPlugin(useGSAP);
-
-const navLinks = [
-  { label: "Services", href: "/#services" },
-  { label: "Case Studies", href: "/#work" },
-  { label: "AI Demo", href: "/#ai-demo" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
 
 const SOLID = { backgroundColor: "rgba(10,10,10,0.92)", backdropFilter: "blur(12px)", boxShadow: "0 4px 24px rgba(0,0,0,0.2)" };
 const TRANSPARENT = { backgroundColor: "rgba(0,0,0,0)", backdropFilter: "blur(0px)", boxShadow: "none" };
 
 export default function Header() {
+  const { t, lang, toggleLang } = useLanguage();
+  const navLinks = [
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.caseStudies, href: "/#work" },
+    { label: t.nav.aiDemo, href: "/#ai-demo" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
+
   const headerRef = useRef<HTMLElement>(null);
   const mobileMenuRef = useRef<HTMLElement>(null);
   const lastScrollY = useRef(0);
@@ -102,8 +104,16 @@ export default function Header() {
           href="/contact#brief"
           className="hidden rounded-lg border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/20 md:inline-block"
         >
-          Start a project
+          {t.nav.startProject}
         </Link>
+
+        <button
+          onClick={toggleLang}
+          className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white backdrop-blur-sm transition-all hover:border-white/30 hover:bg-white/20"
+          aria-label="Toggle language"
+        >
+          {lang === "en" ? "PT" : "EN"}
+        </button>
 
         <button className="md:hidden" onClick={toggleMenu} aria-label="Toggle menu">
           <SidebarToggleIcon className="h-8 w-8" isOpen={mobileMenuOpen} />
@@ -121,8 +131,14 @@ export default function Header() {
           </Link>
         ))}
         <Link href="/contact#brief" className="w-fit rounded-lg border border-white/20 bg-white/10 px-5 py-2.5 text-center text-sm font-medium text-white transition-all hover:bg-white/20" onClick={toggleMenu}>
-          Start a project
+          {t.nav.startProject}
         </Link>
+        <button
+          onClick={toggleLang}
+          className="w-fit rounded-lg border border-white/20 bg-white/10 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-white/20"
+        >
+          {lang === "en" ? "🇧🇷 Português" : "🇬🇧 English"}
+        </button>
       </nav>
     </header>
   );

@@ -1,6 +1,10 @@
+"use client";
+
 import { ArrowUp } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function ContactCTASection() {
+  const { t } = useLanguage();
   return (
     <section className="py-12 md:py-24 bg-neutral-50">
       <div className="max-w-[1440px] mx-auto px-8">
@@ -10,19 +14,18 @@ export default function ContactCTASection() {
 
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6 text-neutral-900">
-                Ready to turn the idea into a working system?
+                {t.contactCTA.heading}
               </h2>
 
               <p className="text-xl text-neutral-600 mb-10">
-                Send a short brief and we&apos;ll help you understand the best
-                next step.
+                {t.contactCTA.subheading}
               </p>
 
               <a
                 href="#brief"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#5d4037] to-[#795548] text-white rounded-lg hover:shadow-2xl hover:shadow-[#5d4037]/30 transition-all font-medium"
               >
-                Start your brief
+                {t.contactCTA.cta}
                 <ArrowUp className="w-5 h-5" />
               </a>
             </div>
