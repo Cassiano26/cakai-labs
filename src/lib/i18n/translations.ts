@@ -836,31 +836,31 @@ export type Translations = {
     companyLinks: { about: string; contact: string };
     copyright: string; privacyPolicy: string; termsOfService: string;
   };
-  hero: { badge: string; heading1: string; headingHighlight: string; heading2: string; subheading: string; cta1: string; cta2: string; stats: { value: string; label: string }[] };
-  services: { sectionLabel: string; heading1: string; heading2: string; subheading: string; items: { title: string; description: string }[] };
-  work: { badge: string; heading: string; subheading: string; moreEngagements: string; featuredProjects: { name: string; label: string; description: string; longDescription: string; tags: string[]; href: string; appStore?: string }[]; otherProjects: { name: string; description: string; tags: string[]; href: string }[] };
+  hero: { badge: string; heading1: string; headingHighlight: string; heading2: string; subheading: string; cta1: string; cta2: string; stats: readonly { value: string; label: string }[] };
+  services: { sectionLabel: string; heading1: string; heading2: string; subheading: string; items: readonly { title: string; description: string }[] };
+  work: { badge: string; heading: string; subheading: string; moreEngagements: string; featuredProjects: readonly { name: string; label: string; description: string; longDescription: string; tags: readonly string[]; href: string; appStore?: string }[]; otherProjects: readonly { name: string; description: string; tags: readonly string[]; href: string }[] };
   aiDemo: { badge: string; heading: string; subheading: string };
   aboutHero: { badge: string; heading: string; subheading: string; cta: string };
-  cakaiMeaning: { badge: string; heading: string; p1: string; p2: string; p3: string; layers: { num: string; title: string; desc: string }[] };
-  aiApproach: { badge: string; heading: string; p1: string; p2: string; cards: { title: string; description: string }[] };
+  cakaiMeaning: { badge: string; heading: string; p1: string; p2: string; p3: string; layers: readonly { num: string; title: string; desc: string }[] };
+  aiApproach: { badge: string; heading: string; p1: string; p2: string; cards: readonly { title: string; description: string }[] };
   aboutCTA: { heading: string; subheading: string; cta: string };
-  contactHero: { badge: string; heading: string; subheading: string; cta: string; tagline: string; tags: string[] };
+  contactHero: { badge: string; heading: string; subheading: string; cta: string; tagline: string; tags: readonly string[] };
   projectBrief: {
     badge: string; heading: string; p1: string; p2: string; whatHappensNext: string;
-    steps: { step: string; title: string; desc: string }[];
+    steps: readonly { step: string; title: string; desc: string }[];
     formTitle: string; formSubtitle: string; aiPrefillNote: string;
-    fields: { name: string; company: string; email: string; country: string; website: string; namePlaceholder: string; companyPlaceholder: string; emailPlaceholder: string; countryPlaceholder: string; websitePlaceholder: string; services: string; projectStage: string; timeline: string; budgetRange: string; message: string; messagePlaceholder: string; required: string; select: string; projectStageOptions: string[]; timelineOptions: string[]; budgetRangeOptions: string[] };
-    services: string[];
+    fields: { name: string; company: string; email: string; country: string; website: string; namePlaceholder: string; companyPlaceholder: string; emailPlaceholder: string; countryPlaceholder: string; websitePlaceholder: string; services: string; projectStage: string; timeline: string; budgetRange: string; message: string; messagePlaceholder: string; required: string; select: string; projectStageOptions: readonly string[]; timelineOptions: readonly string[]; budgetRangeOptions: readonly string[] };
+    services: readonly string[];
     submit: string; submitting: string; successTitle: string; successMessage: string;
     privacyNote: string; recaptchaNote: string; privacyPolicy: string; termsOfService: string; and: string; apply: string;
     validationError: string; networkError: string;
   };
-  quickStart: { badge: string; heading: string; subheading: string; prompts: { title: string; desc: string; message: string }[] };
+  quickStart: { badge: string; heading: string; subheading: string; prompts: readonly { title: string; desc: string; message: string }[] };
   contactCTA: { heading: string; subheading: string; cta: string };
   aiChat: {
     title: string; status: string; welcome: string; placeholder: string; send: string; newChat: string;
     briefReady: string; briefServices: string; briefStage: string; briefTimeline: string; openForm: string; error: string;
-    quickReplies: string[];
+    quickReplies: readonly string[];
   };
   landing: {
     nav: { chat: string; projects: string; about: string; contact: string };
