@@ -33,14 +33,16 @@ export default function ContactSection({ ctaHref }: { ctaHref?: string }) {
       </FadeIn>
 
       <footer className="mt-16 flex w-full flex-col items-center justify-between gap-2 border-t border-[#D7E2EA]/15 pt-8 text-xs uppercase tracking-wider text-[#D7E2EA]/50 sm:flex-row md:mt-24">
-        <span>Cakai Labs</span>
-        <a
-          href="mailto:hello@cakai.dev"
-          className="normal-case text-[#D7E2EA]/80 transition-opacity duration-200 hover:opacity-70"
-        >
-          hello@cakai.dev
-        </a>
         <span>{t.footer.copyright}</span>
+        <div className="flex flex-col items-center gap-1 sm:items-end">
+          <span>Cakai Labs</span>
+          <a
+            href="mailto:hello@cakai.dev"
+            className="transition-opacity duration-200 hover:opacity-70"
+          >
+            hello@cakai.dev
+          </a>
+        </div>
       </footer>
     </section>
   );
