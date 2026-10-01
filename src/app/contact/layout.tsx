@@ -1,5 +1,4 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { kanit } from "@/lib/fonts";
 
 export default function ContactLayout({
   children,
@@ -7,10 +6,8 @@ export default function ContactLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <Header />
-      <main className="pt-16">{children}</main>
-      <Footer />
-    </>
+    <main className={`${kanit.className} bg-[#0C0C0C]`} style={{ overflowX: "clip" }}>
+      {children}
+    </main>
   );
 }

@@ -118,6 +118,17 @@ export const translations = {
           tags: ["GEO", "Brand Audit", "AI Visibility", "LLM Optimisation"],
           href: "https://yetify.ai/",
         },
+        {
+          name: "Loop",
+          label: "AI Habit Tracker · iOS",
+          description:
+            "Loop is an AI habit tracker for iPhone powered by Apple Intelligence. Describe what you want to achieve in your own words — typed or spoken — and Apple Intelligence sets up the habits, the schedule and the milestones.",
+          longDescription:
+            "Fresh out of the oven and now live on the App Store: Loop turns a goal into a repeatable habit or a progressive plan that steps up week by week, with streaks, focus sessions and stats to keep you on track.",
+          tags: ["iOS App", "Apple Intelligence", "AI Habit Tracker", "Voice Input"],
+          href: "https://www.downloadloop.app/",
+          appStore: "https://apps.apple.com/us/app/loop-ai-habit-tracker/id6776794217",
+        },
       ],
       otherProjects: [
         {
@@ -259,7 +270,7 @@ export const translations = {
       ],
       formTitle: "Start your project brief",
       formSubtitle: "Tell us a little about the AI problem you want to solve.",
-      aiPrefillNote: "Pre-filled from your AI consultation — feel free to adjust.",
+      aiPrefillNote: "Pre-filled from your chat with Cakai AI. Review it and add your details.",
       fields: {
         name: "Name",
         company: "Company",
@@ -278,6 +289,7 @@ export const translations = {
         message: "Message",
         messagePlaceholder: "Describe the AI outcome you want (strategy, prototype, production)...",
         required: "required",
+        select: "Select",
         projectStageOptions: ["Idea", "Proof of concept", "Pilot", "Production", "Improvement", "Not sure yet"],
         timelineOptions: ["Urgent", "1–3 months", "3–6 months", "Flexible"],
         budgetRangeOptions: ["Not defined yet", "Small project", "Medium project", "Larger project", "Prefer to discuss"],
@@ -291,7 +303,6 @@ export const translations = {
         "Technical AI consulting",
         "Not sure yet",
       ],
-      aiEstimateLabel: "AI estimate",
       submit: "Send project brief",
       submitting: "Sending…",
       successTitle: "Brief sent!",
@@ -300,6 +311,7 @@ export const translations = {
       recaptchaNote: "This site is protected by reCAPTCHA and the Google",
       privacyPolicy: "Privacy Policy",
       termsOfService: "Terms of Service",
+      and: "and",
       apply: "apply.",
       validationError: "Please fill in all required fields.",
       networkError: "Network error. Please try again.",
@@ -353,12 +365,51 @@ export const translations = {
       cta: "Start your brief",
     },
 
+    // Landing (home)
+    landing: {
+      nav: { chat: "AI Chat", projects: "Projects", about: "About", contact: "Contact" },
+      hero: {
+        greeting: "Hi, we are cakai",
+        tagline: "an AI consulting crew turning your ideas into measurable impact",
+        cta: "Start a project",
+      },
+      marquee: [
+        "AI Strategy", "LLMs", "AI Agents", "Prompt Design", "Apple Intelligence",
+        "RAG", "MLOps", "Chatbots", "Technical AI Consulting",
+      ],
+      about: {
+        heading: "About us",
+        text: "Cakai Labs is an artificial intelligence company. We deliver AI services and consulting, from strategy and LLMs to AI agents, RAG and MLOps, helping businesses turn AI into real, useful solutions. We use AI in everything we do, but always with a human touch: every project is guided and supervised by a real person.",
+        founderName: "Cassiano Candido",
+        founderRole: "Founder of Cakai Labs",
+        founderText: "Electronics engineer and developer, deeply passionate about technology as a whole. I created Cakai with a lot of love, to bring people AI-based solutions that help provide a better life for everyone.",
+      },
+      chatHeading: "Tell us your idea",
+      chatSubheading: "Chat with our AI about what you want to build. It asks a few questions, shapes your idea into a brief and fills in the contact form for you.",
+      projectsHeading: "Projects",
+      liveProject: "Live Project",
+      appStore: "App Store",
+      finalCta: "Let's talk",
+    },
+
     // AI Chat Box
     aiChat: {
+      title: "Cakai AI",
+      status: "Online",
+      welcome: "Hi, we are Cakai! Tell us about the idea or problem you have in mind and we'll help you shape it into a project brief.",
+      placeholder: "Describe your idea…",
+      send: "Send message",
+      newChat: "New conversation",
+      briefReady: "Your brief is ready",
+      briefServices: "Services",
+      briefStage: "Stage",
+      briefTimeline: "Timeline",
+      openForm: "Open pre-filled form",
+      error: "Something went wrong. Please try again.",
       quickReplies: [
-        "I need an AI strategy",
-        "I want an AI assistant",
-        "I need MLOps & deployment help",
+        "I want an AI assistant for my customers",
+        "I want to automate a manual process",
+        "I have data and want to get value from it",
       ],
     },
   },
@@ -479,6 +530,17 @@ export const translations = {
             "Com a busca migrando de links para respostas geradas por IA, o Yetify oferece às marcas a visibilidade e as ferramentas para moldar sua narrativa na web generativa.",
           tags: ["GEO", "Auditoria de Marca", "Visibilidade em IA", "Otimização LLM"],
           href: "https://yetify.ai/",
+        },
+        {
+          name: "Loop",
+          label: "Rastreador de Hábitos com IA · iOS",
+          description:
+            "Loop é um AI habit tracker para iPhone que usa a Apple Intelligence. Descreva o que você quer alcançar com suas próprias palavras — escrevendo ou falando — e a Apple Intelligence cria os hábitos, a agenda e as metas.",
+          longDescription:
+            "Acabou de sair do forno e já está na App Store: o Loop transforma um objetivo em um hábito recorrente ou em um plano progressivo que evolui semana a semana, com sequências, sessões de foco e estatísticas para manter você no caminho.",
+          tags: ["App iOS", "Apple Intelligence", "AI Habit Tracker", "Entrada por Voz"],
+          href: "https://www.downloadloop.app/",
+          appStore: "https://apps.apple.com/us/app/loop-ai-habit-tracker/id6776794217",
         },
       ],
       otherProjects: [
@@ -621,7 +683,7 @@ export const translations = {
       ],
       formTitle: "Inicie o brief do seu projeto",
       formSubtitle: "Conte um pouco sobre o problema de IA que você quer resolver.",
-      aiPrefillNote: "Preenchido a partir da sua consulta de IA — fique à vontade para ajustar.",
+      aiPrefillNote: "Preenchido a partir da sua conversa com a Cakai IA. Revise e complete seus dados.",
       fields: {
         name: "Nome",
         company: "Empresa",
@@ -640,6 +702,7 @@ export const translations = {
         message: "Mensagem",
         messagePlaceholder: "Descreva o resultado de IA que você quer (estratégia, protótipo, produção)...",
         required: "obrigatório",
+        select: "Selecionar",
         projectStageOptions: ["Ideia", "Prova de conceito", "Piloto", "Produção", "Melhoria", "Ainda não sei"],
         timelineOptions: ["Urgente", "1–3 meses", "3–6 meses", "Flexível"],
         budgetRangeOptions: ["Ainda não definido", "Projeto pequeno", "Projeto médio", "Projeto maior", "Prefiro discutir"],
@@ -653,7 +716,6 @@ export const translations = {
         "Consultoria técnica em IA",
         "Ainda não sei",
       ],
-      aiEstimateLabel: "Estimativa de IA",
       submit: "Enviar brief do projeto",
       submitting: "Enviando…",
       successTitle: "Brief enviado!",
@@ -662,6 +724,7 @@ export const translations = {
       recaptchaNote: "Este site é protegido pelo reCAPTCHA e pela",
       privacyPolicy: "Política de Privacidade",
       termsOfService: "Termos de Serviço",
+      and: "e",
       apply: "do Google.",
       validationError: "Por favor, preencha todos os campos obrigatórios.",
       networkError: "Erro de rede. Por favor, tente novamente.",
@@ -715,12 +778,51 @@ export const translations = {
       cta: "Começar seu brief",
     },
 
+    // Landing (home)
+    landing: {
+      nav: { chat: "Chat IA", projects: "Projetos", about: "Sobre", contact: "Contato" },
+      hero: {
+        greeting: "Oi, somos cakai",
+        tagline: "um time de consultoria em IA que transforma suas ideias em impacto mensurável",
+        cta: "Iniciar projeto",
+      },
+      marquee: [
+        "Estratégia de IA", "LLMs", "Agentes de IA", "Design de Prompts", "Apple Intelligence",
+        "RAG", "MLOps", "Chatbots", "Consultoria Técnica em IA",
+      ],
+      about: {
+        heading: "Sobre nós",
+        text: "A Cakai Labs é uma empresa de inteligência artificial. Prestamos serviços e consultoria em IA, da estratégia e LLMs a agentes de IA, RAG e MLOps, ajudando empresas a transformar IA em soluções reais e úteis. Usamos IA em tudo o que fazemos, mas sempre com um toque humano: cada projeto é acompanhado e supervisionado por uma pessoa de verdade.",
+        founderName: "Cassiano Candido",
+        founderRole: "Fundador da Cakai Labs",
+        founderText: "Engenheiro em eletrônica e desenvolvedor, apaixonado por tecnologia e por toda a área de TI. Criei a Cakai com muito amor, para levar às pessoas soluções baseadas em IA que ajudem a proporcionar uma vida melhor para todos.",
+      },
+      chatHeading: "Conte sua ideia",
+      chatSubheading: "Converse com a nossa IA sobre o que você quer construir. Ela faz algumas perguntas, transforma sua ideia em um brief e preenche o formulário de contato para você.",
+      projectsHeading: "Projetos",
+      liveProject: "Ver projeto",
+      appStore: "App Store",
+      finalCta: "Vamos conversar",
+    },
+
     // AI Chat Box
     aiChat: {
+      title: "Cakai IA",
+      status: "Online",
+      welcome: "Oi, somos a Cakai! Conte pra gente a ideia ou o problema que você tem em mente e vamos te ajudar a transformá-lo em um brief de projeto.",
+      placeholder: "Descreva sua ideia…",
+      send: "Enviar mensagem",
+      newChat: "Nova conversa",
+      briefReady: "Seu brief está pronto",
+      briefServices: "Serviços",
+      briefStage: "Estágio",
+      briefTimeline: "Prazo",
+      openForm: "Abrir formulário preenchido",
+      error: "Algo deu errado. Por favor, tente novamente.",
       quickReplies: [
-        "Preciso de uma estratégia de IA",
-        "Quero um assistente de IA",
-        "Preciso de ajuda com MLOps & deploy",
+        "Quero um assistente de IA para meus clientes",
+        "Quero automatizar um processo manual",
+        "Tenho dados e quero tirar valor deles",
       ],
     },
   },
@@ -736,7 +838,7 @@ export type Translations = {
   };
   hero: { badge: string; heading1: string; headingHighlight: string; heading2: string; subheading: string; cta1: string; cta2: string; stats: { value: string; label: string }[] };
   services: { sectionLabel: string; heading1: string; heading2: string; subheading: string; items: { title: string; description: string }[] };
-  work: { badge: string; heading: string; subheading: string; moreEngagements: string; featuredProjects: { name: string; label: string; description: string; longDescription: string; tags: string[]; href: string }[]; otherProjects: { name: string; description: string; tags: string[]; href: string }[] };
+  work: { badge: string; heading: string; subheading: string; moreEngagements: string; featuredProjects: { name: string; label: string; description: string; longDescription: string; tags: string[]; href: string; appStore?: string }[]; otherProjects: { name: string; description: string; tags: string[]; href: string }[] };
   aiDemo: { badge: string; heading: string; subheading: string };
   aboutHero: { badge: string; heading: string; subheading: string; cta: string };
   cakaiMeaning: { badge: string; heading: string; p1: string; p2: string; p3: string; layers: { num: string; title: string; desc: string }[] };
@@ -747,13 +849,24 @@ export type Translations = {
     badge: string; heading: string; p1: string; p2: string; whatHappensNext: string;
     steps: { step: string; title: string; desc: string }[];
     formTitle: string; formSubtitle: string; aiPrefillNote: string;
-    fields: { name: string; company: string; email: string; country: string; website: string; namePlaceholder: string; companyPlaceholder: string; emailPlaceholder: string; countryPlaceholder: string; websitePlaceholder: string; services: string; projectStage: string; timeline: string; budgetRange: string; message: string; messagePlaceholder: string; required: string; projectStageOptions: string[]; timelineOptions: string[]; budgetRangeOptions: string[] };
+    fields: { name: string; company: string; email: string; country: string; website: string; namePlaceholder: string; companyPlaceholder: string; emailPlaceholder: string; countryPlaceholder: string; websitePlaceholder: string; services: string; projectStage: string; timeline: string; budgetRange: string; message: string; messagePlaceholder: string; required: string; select: string; projectStageOptions: string[]; timelineOptions: string[]; budgetRangeOptions: string[] };
     services: string[];
-    aiEstimateLabel: string; submit: string; submitting: string; successTitle: string; successMessage: string;
-    privacyNote: string; recaptchaNote: string; privacyPolicy: string; termsOfService: string; apply: string;
+    submit: string; submitting: string; successTitle: string; successMessage: string;
+    privacyNote: string; recaptchaNote: string; privacyPolicy: string; termsOfService: string; and: string; apply: string;
     validationError: string; networkError: string;
   };
   quickStart: { badge: string; heading: string; subheading: string; prompts: { title: string; desc: string; message: string }[] };
   contactCTA: { heading: string; subheading: string; cta: string };
-  aiChat: { quickReplies: string[] };
+  aiChat: {
+    title: string; status: string; welcome: string; placeholder: string; send: string; newChat: string;
+    briefReady: string; briefServices: string; briefStage: string; briefTimeline: string; openForm: string; error: string;
+    quickReplies: string[];
+  };
+  landing: {
+    nav: { chat: string; projects: string; about: string; contact: string };
+    hero: { greeting: string; tagline: string; cta: string };
+    marquee: readonly string[];
+    about: { heading: string; text: string; founderName: string; founderRole: string; founderText: string };
+    chatHeading: string; chatSubheading: string; projectsHeading: string; liveProject: string; appStore: string; finalCta: string;
+  };
 };

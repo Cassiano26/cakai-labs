@@ -1,21 +1,25 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/sections/HeroSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import WorkSection from "@/components/sections/WorkSection";
-import AIDemoSection from "@/components/sections/AIDemoSection";
+import type { Metadata } from "next";
+import HeroSection from "@/components/landing/HeroSection";
+import MarqueeSection from "@/components/landing/MarqueeSection";
+import AboutSection from "@/components/landing/AboutSection";
+import ChatSection from "@/components/landing/ChatSection";
+import ProjectsSection from "@/components/landing/ProjectsSection";
+import ContactSection from "@/components/landing/ContactSection";
+import { kanit } from "@/lib/fonts";
+
+export const metadata: Metadata = {
+  title: "Cakai Labs — AI Consulting",
+};
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
-        <HeroSection />
-        <AIDemoSection />
-        <ServicesSection />
-        <WorkSection />
-      </main>
-      <Footer />
-    </>
+    <main className={`${kanit.className} bg-[#0C0C0C]`} style={{ overflowX: "clip" }}>
+      <HeroSection />
+      <MarqueeSection />
+      <AboutSection />
+      <ChatSection />
+      <ProjectsSection />
+      <ContactSection />
+    </main>
   );
 }

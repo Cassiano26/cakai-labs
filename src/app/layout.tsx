@@ -6,7 +6,7 @@ import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 export const metadata: Metadata = {
   title: "Cakai Labs",
   description: "Cakai Labs",
-  icons: { icon: "/iconLogo.png" },
+  icons: { icon: "/mascot-face.png", apple: "/mascot-face.png" },
 };
 
 export default function RootLayout({

@@ -1,5 +1,34 @@
 @import "tailwindcss";
 
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    background: #0c0c0c;
+  }
+}
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .grecaptcha-badge {
   visibility: hidden !important;
+}
+
+.hero-heading-accent {
+  background: linear-gradient(123deg, #B600A8 0%, #7621B0 50%, #BE4C00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
